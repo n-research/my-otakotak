@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerita Kita 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>💕 Cerita Kita</h1>
+            <p class="subtitle">N,researct & Rika</p>
+        </header>
+
+        <section class="timer-section">
+            <h2>⏱️ Kita udah bersama selama</h2>
+            <div id="timer" class="timer">Loading...</div>
+        </section>
+
+        <section class="story">
+            <h2>📖 Cerita Kita</h2>
+
+            <div class="chapter">
+                <h3>Bab 1: Pertama Ketemu</h3>
+                <p>[Tulis di sini kapan & gimana pertama ketemu...]</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Bab 2: Mulai Dekat</h3>
+                <p>[Tulis di sini momen mulai dekat...]</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Bab 3: Jadian</h3>
+                <p>[Tulis di sini momen jadian...]</p>
+            </div>
+
+            <div class="chapter">
+                <h3>Bab 4: Momen Spesial</h3>
+                <p>[Tulis di sini momen-momen spesial...]</p>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>📸 Galeri Kita</h2>
+            <div class="gallery-grid">
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto2.jpg" alt="Foto 2">
+                <img src="foto3.jpg" alt="Foto 3">
+            </div>
+        </section>
+
+        <section class="message">
+            <h2>💌 Pesan Buat Kamu</h2>
+            <p class="love-letter">
+                [Tulis pesan romantis buat pasangan kamu di sini...]
+            </p>
+        </section>
+
+        <footer>
+            <p>Dibuat dengan ❤️ oleh N,researct</p>
+        </footer>
+    </div>
+
+    <script>
+        // Ganti tanggal ini dengan tanggal jadian kalian
+        const startDate = new Date("2024-01-01");
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("timer").textContent = 
+                `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>

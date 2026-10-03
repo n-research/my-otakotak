@@ -22,9 +22,29 @@
         </header>
 
         <section class="timer-section">
-            <h2>⏱️ Kita udah bersama selama</h2>
-            <div id="timer" class="timer">Loading...</div>
-        </section>
+    <h2>⏱️ Kita udah bersama selama</h2>
+    <div id="timer" class="timer">Loading...</div>
+</section>
+
+<section class="stats">
+    <div class="stat-box">
+        <span class="stat-number" id="stat-days">0</span>
+        <span class="stat-label">Hari</span>
+    </div>
+    <div class="stat-box">
+        <span class="stat-number" id="stat-hours">0</span>
+        <span class="stat-label">Jam</span>
+    </div>
+    <div class="stat-box">
+        <span class="stat-number" id="stat-minutes">0</span>
+        <span class="stat-label">Menit</span>
+    </div>
+</section>
+
+<div class="cta-buttons">
+    <a href="gallery.html" class="btn btn-primary">📸 Lihat Galeri</a>
+    <a href="message.html" class="btn btn-secondary">💌 Baca Pesan</a>
+</div>
 
         <section class="story">
             <h2>📖 Cerita Kita</h2>
@@ -67,9 +87,15 @@
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            document.getElementById("timer").textContent = 
-                `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
-        }
+        
+                document.getElementById("timer").textContent = 
+             `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+
+             document.getElementById("stat-days").textContent = days;
+             document.getElementById("stat-hours").textContent = hours;
+             document.getElementById("stat-minutes").textContent = minutes;
+}
+        
 
         setInterval(updateTimer, 1000);
         updateTimer();

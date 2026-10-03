@@ -27,15 +27,21 @@ body.home {
     background-repeat: no-repeat;
 }
 
+/* Overlay gelap biar teks kebaca (desktop) */
 body.home::before {
     content: '';
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, rgba(10, 20, 10, 0.9) 0%, rgba(10, 20, 10, 0.6) 50%, rgba(10, 20, 10, 0.3) 100%);
+    background: linear-gradient(90deg, 
+        rgba(10, 20, 10, 0.9) 0%, 
+        rgba(10, 20, 10, 0.6) 40%, 
+        rgba(10, 20, 10, 0.3) 100%
+    );
     z-index: -1;
 }
 
+/* Teks di kiri (desktop) */
 body.home .container {
     margin-left: 0;
     margin-right: 50%;
@@ -113,6 +119,7 @@ nav a.active {
     background-clip: text;
     animation: gradientMove 3s linear infinite;
     margin-bottom: 10px;
+    filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.8));
 }
 
 @keyframes gradientMove {
@@ -124,6 +131,7 @@ nav a.active {
     font-size: 1.3em;
     color: #a5d6a7;
     font-style: italic;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* ===========================
@@ -150,6 +158,7 @@ section h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
     text-align: left;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* ===========================
@@ -165,11 +174,11 @@ section h2 {
     font-weight: bold;
     color: #81c784;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin-top: 15px;
     font-family: 'Courier New', monospace;
-    text-shadow: 0 0 20px rgba(129, 199, 132, 0.5);
+    text-shadow: 0 0 20px rgba(129, 199, 132, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9);
     display: inline-block;
 }
 
@@ -179,7 +188,7 @@ section h2 {
 .chapter {
     margin: 25px 0;
     padding: 20px;
-    background: rgba(26, 46, 26, 0.5);
+    background: rgba(10, 20, 10, 0.6);
     border-left: 3px solid #81c784;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -195,11 +204,13 @@ section h2 {
     margin-bottom: 10px;
     font-size: 1.2em;
     text-align: left;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .chapter p {
     color: #c8e6c9;
     text-align: left;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* ===========================
@@ -241,6 +252,7 @@ section h2 {
     border-top: 1px dashed rgba(129, 199, 132, 0.3);
     border-bottom: 1px dashed rgba(129, 199, 132, 0.3);
     margin-top: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* ===========================
@@ -251,6 +263,7 @@ footer {
     padding: 30px 0;
     color: #a5d6a7;
     font-style: italic;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* ===========================
@@ -274,14 +287,28 @@ footer {
 }
 
 /* ===========================
-   RESPONSIVE
+   RESPONSIVE (HP)
    =========================== */
 @media (max-width: 600px) {
+    /* Foto muncul di HP */
     body.home {
-        background-image: none;
-        background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #1a2e1a 100%);
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
     }
     
+    /* Overlay lebih terang biar foto keliatan */
+    body.home::before {
+        background: linear-gradient(180deg, 
+            rgba(10, 20, 10, 0.7) 0%, 
+            rgba(10, 20, 10, 0.5) 50%,
+            rgba(10, 20, 10, 0.7) 100%
+        );
+    }
+    
+    /* Teks full width di HP */
     body.home .container {
         margin-left: 0;
         margin-right: 0;
